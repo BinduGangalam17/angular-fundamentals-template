@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-course-card',
@@ -11,6 +11,41 @@ export class CourseCardComponent {
   creationDate!: Date
   duration!: number
   authors!: string[]
+
+  @Input()
+editable:Boolean=true;
+
+@Input()
+ courses:[]=[];
+
+@Output() clickOnShow = new EventEmitter<void>();
+
+@Output() showCourse = new EventEmitter<void>();
+
+@Output() editCourse = new EventEmitter<void>();
+
+@Output() deleteCourse = new EventEmitter<void>();
+
+clickOnShowCourse()
+{
+  this.clickOnShow.emit();
+}
+
+showCourses()
+{
+  this.showCourse.emit();
+}
+
+editCourseData()
+{
+  this.editCourse.emit();
+}
+
+deleteCourseData()
+{
+  this.deleteCourse.emit();
+}
+
 
 onSearch(event:string)
 {
