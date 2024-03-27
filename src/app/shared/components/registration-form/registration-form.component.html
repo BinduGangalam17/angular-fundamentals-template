@@ -5,24 +5,53 @@
       <div class="form__control">
         <label for="name">Name</label>
         <!--Use the name `name` for the form control.-->
-        <input type="text" id="name" placeholder="Input text"/>
-        <span id="nameErrorMessage" class="text-danger">Name is required.</span>
+        <input type="text" id="name" name="name" class="form-control" minlength="6"
+        required [(ngModel)]="form.name" #name="ngModel" placeholder="Input text"/>
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+        class="text-danger">
+        <div *ngIf="name.errors?.['required']">
+          Name is required.
+        </div>
+        <div *ngIf="name.errors?.['minlength']">
+          Name must be at least 6 characters long.
+        </div>
+      </div>
+        <!-- <span id="nameErrorMessage" class="text-danger">Name is required.</span> -->
       </div>
       <div class="form__control">
         <!--Use the name `email` for the form control.-->
         <label for="email">Email</label>
-        <input type="text" id="email" placeholder="Input text"/>
-        <span id="emailErrorMessage" class="text-danger">Email is required.</span>
+        <!-- <input type="text" id="email" placeholder="Input text"/> -->
+        <input type="text" id="email" name="email" class="form-control"
+        required [(ngModel)]="form.email" #email="ngModel" placeholder="Input text" emailValidator />
+
+        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+          class="text-danger">
+          <div *ngIf="email.errors?.['required']" >
+            Email is required.
+          </div>
+        </div>
+        <!-- <span id="emailErrorMessage" class="text-danger">Email is required.</span> -->
       </div>
       <div class="form__control">
         <!--Use the name `password` for the form control.-->
         <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Input text"/>
-        <span id="passwordErrorMessage" class="text-danger">Password is required.</span>
+        <input type="password" id="password" name="password" class="form-control"
+        required [(ngModel)]="form.password" #password="ngModel"  placeholder="Input text"/>
+
+    <div *ngIf="password.invalid && (password.dirty || password.touched)"
+    class="text-danger">
+        <div *ngIf="password.errors?.['required']">
+          Password is required.
+        </div>
+      </div>
       </div>
     </div>
     <div class="form__action">
       <app-button></app-button>
     </div>
+    
+      If you have an account you may <a href="../login-form/login-form.component.html">Login</a>
+   
   </div>
 </div>

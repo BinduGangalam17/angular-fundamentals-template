@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class CourseInfoComponent {
   // Use the names for the input `course`.
+  title!: string
+  description!: string
+  id!: string
+  creationDate!: Date
+  duration!: number
+  authors!: string[]
 }

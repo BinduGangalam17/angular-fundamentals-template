@@ -5,4 +5,17 @@ import { Component } from '@angular/core';
   templateUrl: './course-card.component.html',
   styleUrls: ['./course-card.component.scss']
 })
-export class CourseCardComponent {}
+export class CourseCardComponent {
+  title!: string
+  description!: string
+  creationDate!: Date
+  duration!: number
+  authors!: string[]
+
+onSearch(event:string)
+{
+  console.log(event);
+}
+
+}
+
