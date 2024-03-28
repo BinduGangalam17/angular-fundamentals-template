@@ -9,12 +9,7 @@ import { NgForm } from '@angular/forms';
 export class LoginFormComponent {
   @ViewChild("loginForm") public loginForm!: NgForm;
   //Use the names `email` and `password` for form controls.
-  form = {
-    email: '',
-    password: ''
-  };
-
-  onSubmit(): void {
-    console.log(JSON.stringify(this.form, null, 2));
+  onSubmit(arg0:any){
+    
   }
 }
