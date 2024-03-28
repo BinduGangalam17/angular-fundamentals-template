@@ -12,16 +12,17 @@ import { AbstractControl, EmailValidator, NG_VALIDATORS, ValidationErrors, Valid
 export class EmailValidatorDirective implements Validator {
     @Input('emailValidator') emailValidator = '';
     validate(control: AbstractControl<any, any>): ValidationErrors | null {
-       // throw new Error("Method not implemented.");
-        const emailRegexp = new RegExp('^([A-Za-z0-9_\\-.])+@([A-Za-z0-9_\\-.])+\\.([A-Za-z]{2,4})$');
+        const emailRegexp = new RegExp(' /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i');
 
-        let answer = emailRegexp.test(control.value);
+        let valid = emailRegexp.test(control.value);
+
+        return valid ? null : {invalidEmail:true};
         
-        if (!answer) {
-        return { 'validateEmail': true }
-        }
+        // if (!answer) {
+        // return { 'validateEmail': true }
+        // }
 
-        return null;
+        //return null;
     }
     registerOnValidatorChange?(fn: () => void): void {
         throw new Error("Method not implemented.");
