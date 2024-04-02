@@ -10,13 +10,16 @@ export class SessionStorageService {
 
   setToken(token: string){
     // Add your code here
+    sessionStorage.setItem("TOKEN", "SESSION_TOKEN");
   }
 
   getToken(){
     // Add your code here
+    let data = sessionStorage.getItem("TOKEN");
   }
 
   deleteToken(){
     // Add your code here
+    sessionStorage.removeItem("TOKEN");
   }
 }
