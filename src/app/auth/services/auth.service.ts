@@ -12,7 +12,7 @@ export class AuthService {
     public isAuthorized$: Observable<boolean> = this.isAuthorized$$.asObservable();
 
     constructor(private sessionStorageService: SessionStorageService, private http:HttpClient){}
-    apiUrl:string='BASE_API_URL';
+    apiUrl:string='http://localhost:4000/api';
   
     login(user: any) { // replace 'any' with the required interface
         // Add your code here
