@@ -12,6 +12,6 @@ export const routes: Routes = [
     {path:'courses', component: CourseListComponent},
     {path:'courses/add', component:AddcourseComponent},
     {path:'courses/:id', component:CourseDetailsComponent},
-    {path:'courses/edit/:id', component:EditcourseComponent}
+    {path:'courses/edit/:id', component:EditcourseComponent},
     {path:'**', component: CourseListComponent}
 ];
