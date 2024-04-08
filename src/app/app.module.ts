@@ -8,6 +8,7 @@ import { NotAuthorizedGuard } from '@app/auth/guards/not-authorized.guard';
 import { AuthorizedGuard } from '@app/auth/guards/authorized.guard';
 import { CoursesStoreService } from '@app/services/courses-store.service';
 import { CoursesService } from '@app/services/courses.service';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [AppComponent, CourseInfoComponent],
@@ -15,6 +16,7 @@ import { CoursesService } from '@app/services/courses.service';
     BrowserModule,
     SharedModule,
     FontAwesomeModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [AuthorizedGuard, NotAuthorizedGuard, CoursesService, CoursesStoreService],
   bootstrap: [AppComponent],
